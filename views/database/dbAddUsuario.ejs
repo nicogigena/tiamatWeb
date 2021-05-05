@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partials/head.ejs")%>
+<body>
+    <%- include("./dbPartials/dbNavbar.ejs")%>
+    <h1>Cargar Datos</h1>
+    <ul>
+        <li>
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="/database/add/equipo">Equipo</a>
+        </li>
+        <li>
+            <a href="/database/add/usuario">Usuario</a>
+        </li>
+        <li>
+            <a href="/database/add/torneo">Torneo</a>
+        </li>
+    </ul>
+    <div class="container">
+        <form action="/database">
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="nombre">Nombre</label>
+                    <input class="form-control" type="text" name="nombre">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="apellido">Apellido</label>
+                    <input class="form-control" type="text" name="apellido">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="email">Email</label>
+                    <input class="form-control" type="email" name="email">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="discord">Discord ID</label>
+                    <input class="form-control" type="text" name="discord" placeholder="Pepito#9128">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="email">LoL ID</label>
+                    <input class="form-control" type="email" name="email">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="nacimiento">Fecha de Nacimiento</label>
+                    <input class="form-control" type="date" name="nacimiento">
+                </div>
+                
+                <div class="form-group col-md-4">
+                    <label for="linea">Posición Main</label>
+                    <select name="linea" id="" class="form-control" >
+                        <option value="">Elige tu linea</option>
+                        <% for (let i = 0; i < lineas.length; i++) {%>
+                            <option value="<%= lineas[i].id%>"><%= lineas[i].nombre%></option>
+                            
+                            <%} %>
+                    </select>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="equipo">Equipo</label>
+                    <select name="linea" id="" class="form-control" aria-placeholder="Seleccionar un equipo">
+                        <option value="">Elige tu equipo</option>
+                        <% for (let i = 0; i < equipos.length; i++) {%>
+                            <option value="<%= equipos[i].id%>"><%= equipos[i].nombre%></option>
+                            
+                            <%} %>
+                    </select>
+                </div>
+                
+                <div class="form-group col-md-4">
+                    <label for="nacimiento">Fecha de Nacimiento</label>
+                    <input class="form-control" type="date" name="nacimiento">
+                </div>
+            </div>
+    
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    
+
+</body>
+</html>
